@@ -8,3 +8,4 @@ Add any modpack ideas here!
 -   Remove/gate some ae2 features like processing crafting
 -   Mod Gating with kubejs
 -   Maybe a custom mod for more advanced things
+-   If we do add Thermal, gate it

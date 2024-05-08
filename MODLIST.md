@@ -9,3 +9,7 @@ Add mods you want to see in the pack here
 -   Create: The Factory Must Grow
 -   Create: Diesel Generators
 -   Artifacts
+-   Create Numismatics
+-   Create Steam and Rails
+-   Quark
+-   Thermal
