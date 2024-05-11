@@ -1,1 +1,0 @@
-StartupEvents.registry("item", (e) => {});
