@@ -1,0 +1,4 @@
+// 1.20.1	2024-05-16T15:47:12.7479859	Loot Tables
+e34126b1cc2db4ad23641936e4d78e6eed09d609 data/mm/loot_tables/item_input_input.json
+e6ef927f9e387d5b625687dce9f3fc46a93a33db data/mm/loot_tables/item_input_output.json
+9e2becb08f0b248d1f04dec0ff8ea2dad88c23f3 data/mm/loot_tables/mechanical_centrifuge.json

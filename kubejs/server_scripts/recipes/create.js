@@ -1,4 +1,16 @@
 ServerEvents.recipes((e) => {
+    e.shaped(
+        "create_mechanical_extruder:mechanical_extruder",
+        ["CSC", "GAG", "IGI"],
+        {
+            C: "create:cogwheel",
+            S: "create:shaft",
+            G: "#forge:glass",
+            A: "create:andesite_casing",
+            I: "#forge:ingots/iron",
+        }
+    );
+
     e.recipes.create_mechanical_extruder
         .extruding("andesite", [
             Fluid.of("kubejs:andesite_aggregate_slurry"),
@@ -15,6 +27,7 @@ ServerEvents.recipes((e) => {
     e.recipes.create.compacting("kubejs:andesite_aggregate_slurry", [
         "3x andesite",
         "#themtn:stones_not_andesite",
+        Fluid.of("minecraft:water", 1000),
     ]);
     e.recipes.create.milling("kubejs:zinc_dust", "#forge:ingots/zinc");
     e.recipes.create.crushing("kubejs:zinc_dust", "#forge:ingots/zinc");
@@ -27,20 +40,39 @@ ServerEvents.recipes((e) => {
     e.shaped("kubejs:zinc_dust", ["##", "##"], {
         "#": "kubejs:small_pile_of_zinc_dust",
     });
-    e.recipes.create.mixing("create:andesite_alloy", [
+    e.recipes.create.mixing("2x create:andesite_alloy", [
         Fluid.of("kubejs:andesite_aggregate_slurry", 1000),
-        "quartz",
+        "kubejs:small_pile_of_zinc_dust",
     ]);
+    e.recipes.thermal.crystallizer("kubejs:andesite_crystal", [
+        Fluid.of("kubejs:andesite_aggregate_slurry", 1000),
+        "#forge:dusts/zinc",
+    ]);
+    e.custom({
+        type: "vintageimprovements:vibrating",
+        ingredients: [
+            {
+                tag: "forge:dusts/zinc",
+            },
+        ],
+        results: [
+            {
+                item: "kubejs:small_pile_of_zinc_dust",
+                count: 4,
+            },
+        ],
+        processingTime: 300,
+    });
 });
 
 ServerEvents.tags("item", (e) => {
     let stonesNotAndesite = [];
     Ingredient.of("#forge:stone").itemIds.forEach((item) => {
-        if (!item === "minecraft:andesite" || !item === "andesite") {
+        if (!(item == "minecraft:andesite" || item == "andesite")) {
             stonesNotAndesite.push(item);
         }
     });
     for (let stone of stonesNotAndesite) {
-        e.get("themtn:stones_not_andesite").add(stone); // for some reason this doesn't work
+        e.add("themtn:stones_not_andesite", stone);
     }
 });

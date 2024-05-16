@@ -9,4 +9,5 @@ ServerEvents.recipes((e) => {
     e.remove({
         id: "thermal:compat/create/smelter_create_alloy_andesite_alloy",
     });
+    e.remove({ id: "create_mechanical_extruder:mechanical_extruder" });
 });

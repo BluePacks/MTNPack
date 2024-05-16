@@ -66,6 +66,11 @@
   "create:exact_block": null,
   "create:filter": null,
   "create:goggles": null,
+  "mm:controller_progress": null,
+  "mekanism:data_provider": null,
+  "mekanism:entity_data_provider": null,
+  "mekanism:tooltip_renderer": null,
+  "mekanism:remove_builtin": null,
   "lootr:info": null,
   "lootr:inventory": null,
   "create:blaze_burner": null,
@@ -132,5 +137,9 @@
   "ae2:part_name": null,
   "ae2:part_icon": null,
   "ae2:part_tooltip": null,
-  "ae2:part_mod_name": null
+  "ae2:part_mod_name": null,
+  "mekanism:data_provider": null,
+  "mekanism:entity_data_provider": null,
+  "mekanism:tooltip_renderer": null,
+  "mekanism:remove_builtin": null
 }

@@ -1,0 +1,3 @@
+#Enables the Debug Tool Item's functionality (Disable when on server)
+debugTool = true
+
