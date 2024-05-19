@@ -2,6 +2,8 @@
 
 Add any modpack ideas here!
 
+![progression](.github/assets/progression.png)
+
 -   Progression based using some sort of refining ore tiers
 -   Meteor ore deposits
 -   Huge multiblocks to mine meteors
