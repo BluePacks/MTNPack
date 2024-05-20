@@ -18,3 +18,5 @@ usernamecache.json
 config/worldedit
 essential
 config/mm/dumps
+ops.json
+whitelist.json
