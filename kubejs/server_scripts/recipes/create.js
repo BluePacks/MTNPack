@@ -1,4 +1,27 @@
 ServerEvents.recipes((e) => {
+    /**
+     *
+     * @param {JSON} inputs
+     * @param {JSON} outputs
+     * @param {number} processingTime
+     * @param {string} heatRequirement
+     */
+    function createDistillation(
+        inputs,
+        outputs,
+        processingTime,
+        heatRequirement
+    ) {
+        if (!processingTime) processingTime = 100;
+        if (!heatRequirement) heatRequirement = "heated";
+        e.custom({
+            type: "createdieselgenerators:distillation",
+            ingredients: inputs,
+            heatRequirement: heatRequirement,
+            processingTime: processingTime,
+            results: outputs,
+        });
+    }
     e.shaped(
         "create_mechanical_extruder:mechanical_extruder",
         ["CSC", "GAG", "IGI"],
@@ -68,17 +91,14 @@ ServerEvents.recipes((e) => {
         processingTime: 300,
     });
 
-    e.custom({
-        type: "createdieselgenerators:distillation",
-        ingredients: [
+    createDistillation(
+        [
             {
                 fluidTag: "forge:crude_oil",
                 amount: 100,
             },
         ],
-        heatRequirement: "heated",
-        processingTime: 100,
-        results: [
+        [
             {
                 fluid: "thermal:heavy_oil",
                 amount: 50,
@@ -87,19 +107,16 @@ ServerEvents.recipes((e) => {
                 fluid: "thermal:light_oil",
                 amount: 50,
             },
-        ],
-    });
-    e.custom({
-        type: "createdieselgenerators:distillation",
-        ingredients: [
+        ]
+    );
+    createDistillation(
+        [
             {
                 fluid: "thermal:light_oil",
                 amount: 100,
             },
         ],
-        heatRequirement: "heated",
-        processingTime: 100,
-        results: [
+        [
             {
                 fluid: "createdieselgenerators:diesel",
                 amount: 50,
@@ -108,19 +125,16 @@ ServerEvents.recipes((e) => {
                 fluid: "createdieselgenerators:gasoline",
                 amount: 50,
             },
-        ],
-    });
-    e.custom({
-        type: "createdieselgenerators:distillation",
-        ingredients: [
+        ]
+    );
+    createDistillation(
+        [
             {
                 fluid: "thermal:heavy_oil",
                 amount: 100,
             },
         ],
-        heatRequirement: "heated",
-        processingTime: 100,
-        results: [
+        [
             {
                 fluid: "createdieselgenerators:diesel",
                 amount: 50,
@@ -129,8 +143,8 @@ ServerEvents.recipes((e) => {
                 fluid: "createdieselgenerators:gasoline",
                 amount: 50,
             },
-        ],
-    });
+        ]
+    );
 });
 
 ServerEvents.tags("item", (e) => {

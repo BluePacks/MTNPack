@@ -1,4 +1,4 @@
-//priority: 1000
+//priority: 100
 ServerEvents.recipes((e) => {
     e.remove({ mod: "ae2" });
     e.remove({ id: "create:mixing/andesite_alloy" });
@@ -21,19 +21,10 @@ ServerEvents.recipes((e) => {
     e.remove({ id: "thermal:machines/refinery/refinery_light_oil" });
     e.remove({ id: "thermal:machines/refinery/refinery_heavy_oil" });
     e.remove({ id: "thermal:machines/refinery/refinery_crude_oil" });
-    e.remove({ type: "thermal:gourmand_fuel" });
-    e.remove({ type: "thermal:compression_fuel" });
-    e.remove({ type: "thermal:lapidary_fuel" });
-    e.remove({ type: "thermal:magmatic_fuel" });
-    e.remove({ type: "thermal:stirling_fuel" });
-    e.remove({ type: "thermal:numismatic_fuel" });
-    e.remove({ type: "thermal:disenchantment_fuel" });
-    e.remove({ id: "thermal:dynamo_disenchantment" });
-    e.remove({ id: "thermal:dynamo_stirling" });
-    e.remove({ id: "thermal:dynamo_magmatic" });
-    e.remove({ id: "thermal:dynamo_numismatic" });
-    e.remove({ id: "thermal:dynamo_lapidary" });
-    e.remove({ id: "thermal:dynamo_gourmand" });
-    e.remove({ id: "thermal:dynamo_lapidary" });
+    for (let dynamo of global.thermalDynamos) {
+        e.remove({ type: `thermal:${dynamo}_fuel` });
+        e.remove({ id: `thermal:dynamo_${dynamo}` });
+    }
     e.remove({ id: "thermal:dynamo_compression" });
+    e.remove({ type: "thermal:compression_fuel" });
 });
